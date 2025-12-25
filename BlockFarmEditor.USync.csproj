@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="uSync" Version="16.0.1" />
+    <PackageReference Include="uSync" Version="17.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlockFarmEditor.RCL\BlockFarmEditor.RCL.csproj" />
+    <ProjectReference Include="..\BlockFarmEditor\BlockFarmEditor.Umbraco\BlockFarmEditor.Umbraco.csproj" />
   </ItemGroup>
 
 </Project>

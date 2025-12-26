@@ -86,9 +86,11 @@ namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
             {
                 Key = key,
                 Name = node.Element("Name").ValueOrDefault(string.Empty),
-                Type = node.Element("Type").ValueOrDefault(string.Empty),
+                Description = node.Element("Description").ValueOrDefault(string.Empty),
                 Layout = node.Element("Layout").ValueOrDefault(string.Empty),
                 Category = node.Element("Category").ValueOrDefault(string.Empty),
+                Type = node.Element("Type").ValueOrDefault(string.Empty),
+                Icon = node.Element("Icon").ValueOrDefault(string.Empty),
                 Enabled = node.Element("Enabled").ValueOrDefault(true),
                 CreatedBy = user?.Key ?? Guid.Empty,
                 UpdatedBy = user?.Key ?? Guid.Empty,
@@ -101,10 +103,10 @@ namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
                 item.Name = name;
             }
 
-            var type = node.Element("Type").ValueOrDefault(string.Empty);
-            if (item.Type != type) {
-                details.AddUpdate("Type", item.Type, type);
-                item.Type = type;
+            var description = node.Element("Description").ValueOrDefault(string.Empty);
+            if (item.Description != description) {
+                details.AddUpdate("Description", item.Description, description);
+                item.Description = description;
             }
 
             var layout = node.Element("Layout").ValueOrDefault(string.Empty);
@@ -118,6 +120,20 @@ namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
             if (item.Category != category) {
                 details.AddUpdate("Category", item.Category, category);
                 item.Category = category;
+            }
+
+            var type = node.Element("Type").ValueOrDefault(string.Empty);
+            if (item.Type != type)
+            {
+                details.AddUpdate("Type", item.Type, type);
+                item.Type = type;
+            }
+
+            var icon = node.Element("Icon").ValueOrDefault(string.Empty);
+            if (item.Icon != icon)
+            {
+                details.AddUpdate("Icon", item.Icon, icon);
+                item.Icon = icon;
             }
 
             var enabled = node.Element("Enabled").ValueOrDefault(true);
@@ -166,9 +182,11 @@ namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
                 var node = InitializeBaseNode(item, item.Key.ToString());
 
                 node.Add(new XElement("Name", item.Name));
-                node.Add(new XElement("Type", item.Type));
+                node.Add(new XElement("Description", item.Description));
                 node.Add(new XElement("Layout", item.Layout));
                 node.Add(new XElement("Category", item.Category));
+                node.Add(new XElement("Type", item.Type));
+                node.Add(new XElement("Icon", item.Icon));
                 node.Add(new XElement("Enabled", item.Enabled));
                 node.Add(new XElement("CreatedBy", item.CreatedBy));
                 node.Add(new XElement("UpdatedBy", item.UpdatedBy));

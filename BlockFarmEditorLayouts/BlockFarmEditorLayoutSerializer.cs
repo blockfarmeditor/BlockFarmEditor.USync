@@ -1,14 +1,7 @@
-﻿using BlockFarmEditor.Umbraco.Library.Services;
-using BlockFarmEditor.Umbraco.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using BlockFarmEditor.Umbraco.Core.DTO;
+using BlockFarmEditor.Umbraco.Core.Interfaces;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
-using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Persistence;
 using uSync.Core;
@@ -18,7 +11,7 @@ using uSync.Core.Serialization;
 
 namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
 {
-    [SyncSerializer("9E50ED21-718F-4DA0-9307-1FC238A95ED7", "BlockFarmEditor Layout Serializer", "BlockFarmEditorLayout", IsTwoPass = false)]
+    [SyncSerializer("9E50ED21-718F-4DA0-9307-1FC238A95ED7", "BlockFarmEditor Layout Serializer", BlockFarmEditorLayoutDTO.TableName, IsTwoPass = false)]
     public class BlockFarmEditorLayoutSerializer(IEntityService entityService, ILogger<SyncSerializerBase<BlockFarmEditorLayoutDTO>> logger, IUmbracoDatabaseFactory umbracoDatabaseFactory, IBlockFarmEditorLayoutService blockFarmEditorLayoutService, IUserService userService) : SyncSerializerBase<BlockFarmEditorLayoutDTO>(entityService, logger), ISyncSerializer<BlockFarmEditorLayoutDTO>
     {
         public override async Task DeleteItemAsync(BlockFarmEditorLayoutDTO item)

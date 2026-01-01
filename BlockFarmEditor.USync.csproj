@@ -6,7 +6,11 @@
     <Nullable>enable</Nullable>
     <Title>Block Farm Editor USync</Title>
       <VersionPrefix>17.1.0</VersionPrefix>
-      <PackageOutputPath>../</PackageOutputPath>
+      <PackageOutputPath>..\</PackageOutputPath>
+      <Description>Package allowing full USync integration for BlockFarmEditor</Description>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <PackageReleaseNotes>Inital Release</PackageReleaseNotes>
+      <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlockFarmEditor\BlockFarmEditor.Umbraco\BlockFarmEditor.Umbraco.csproj" />
+    <ProjectReference Include="..\BlockFarmEditor\BlockFarmEditor.Umbraco.Core\BlockFarmEditor.Umbraco.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

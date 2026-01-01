@@ -1,33 +1,23 @@
-﻿using BlockFarmEditor.Umbraco.Library.Services;
-using BlockFarmEditor.Umbraco.Models;
+﻿using BlockFarmEditor.Umbraco.Core.DTO;
+using BlockFarmEditor.Umbraco.Core.Interfaces;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
-using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Events;
-using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Notifications;
-using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Strings;
 using Umbraco.Cms.Infrastructure.Persistence;
 using uSync.BackOffice;
 using uSync.BackOffice.Configuration;
-using uSync.BackOffice.Models;
 using uSync.BackOffice.Services;
 using uSync.BackOffice.SyncHandlers;
 using uSync.BackOffice.SyncHandlers.Interfaces;
 using uSync.BackOffice.SyncHandlers.Models;
 using uSync.Core;
-using uSync.Core.Dependency;
-using uSync.Core.Models;
 using static Umbraco.Cms.Core.Constants;
 
 namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
 {
-    [SyncHandler("BlockFarmEditorLayoutUsyncHandler", "Block Farm Editor Layouts", "BlockFarmEditorLayout", 5000
+    [SyncHandler("BlockFarmEditorLayoutUsyncHandler", "BFE Layouts", BlockFarmEditorLayoutDTO.TableName, 5000
     , Icon = "icon-layout", EntityType = UdiEntityType.Unknown)]
     public class BlockFarmEditorLayoutUsyncHandler(ILogger<SyncHandlerRoot<BlockFarmEditorLayoutDTO, BlockFarmEditorLayoutDTO>> logger, AppCaches appCaches, IShortStringHelper shortStringHelper, ISyncFileService syncFileService, ISyncEventService mutexService, ISyncConfigService uSyncConfig, ISyncItemFactory itemFactory, IBlockFarmEditorLayoutService blockFarmEditorLayoutService, IUmbracoDatabaseFactory umbracoDatabaseFactory) : SyncHandlerRoot<BlockFarmEditorLayoutDTO, BlockFarmEditorLayoutDTO>(logger, appCaches, shortStringHelper, syncFileService, mutexService, uSyncConfig, itemFactory), ISyncHandler,
     INotificationAsyncHandler<SavedNotification<BlockFarmEditorLayoutDTO>>,

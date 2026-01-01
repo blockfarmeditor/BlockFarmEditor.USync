@@ -1,5 +1,5 @@
-﻿using BlockFarmEditor.Umbraco.Library.Services;
-using BlockFarmEditor.Umbraco.Models;
+﻿using BlockFarmEditor.Umbraco.Core.DTO;
+using BlockFarmEditor.Umbraco.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ using static Umbraco.Cms.Core.Constants;
 
 namespace BlockFarmEditor.USync.BlockFarmEditorLayouts
 {
-    [SyncHandler("BlockFarmEditorDefinitionUsyncHandler", "Block Farm Editor Definitions", "BlockFarmEditorDefinition", 5000
+    [SyncHandler("BlockFarmEditorDefinitionUsyncHandler", "BFE Definitions", BlockFarmEditorDefinitionDTO.TableName, 5000
     , Icon = "icon-info", EntityType = UdiEntityType.Unknown)]
     public class BlockFarmEditorDefinitionUsyncHandler(ILogger<SyncHandlerRoot<BlockFarmEditorDefinitionDTO, BlockFarmEditorDefinitionDTO>> logger, AppCaches appCaches, IShortStringHelper shortStringHelper, ISyncFileService syncFileService, ISyncEventService mutexService, ISyncConfigService uSyncConfig, ISyncItemFactory itemFactory, IBlockFarmEditorDefinitionService blockFarmEditorDefinitionService, IUmbracoDatabaseFactory umbracoDatabaseFactory) : SyncHandlerRoot<BlockFarmEditorDefinitionDTO, BlockFarmEditorDefinitionDTO>(logger, appCaches, shortStringHelper, syncFileService, mutexService, uSyncConfig, itemFactory), ISyncHandler,
     INotificationAsyncHandler<SavedNotification<BlockFarmEditorDefinitionDTO>>,

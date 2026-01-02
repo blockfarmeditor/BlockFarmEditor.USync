@@ -4,13 +4,15 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Title>Block Farm Editor USync</Title>
-      <VersionPrefix>17.1.0</VersionPrefix>
+    <Title>Block Farm Editor USync Package</Title>
+      <VersionPrefix>17.1.2</VersionPrefix>
       <PackageOutputPath>..\</PackageOutputPath>
-      <Description>Package allowing full USync integration for BlockFarmEditor</Description>
+      <Description>Package allowing full USync integration for BlockFarmEditor
+17.1.2 Switched to only pulling in the core library. </Description>
       <PackageReadmeFile>README.md</PackageReadmeFile>
-      <PackageReleaseNotes>Inital Release</PackageReleaseNotes>
+      <PackageReleaseNotes>Switched to only pulling in the core library. </PackageReleaseNotes>
       <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+      <Copyright>© 2026 Joshua Hess. All rights reserved.</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

@@ -13,6 +13,7 @@
       <PackageReleaseNotes>Switched to only pulling in the core library. </PackageReleaseNotes>
       <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
       <Copyright>© 2026 Joshua Hess. All rights reserved.</Copyright>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
